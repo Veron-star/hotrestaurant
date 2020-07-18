@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/style.css">
+    
+</head>
+<body>
+    <section>
+        <div class="content">
+            <h2>Hot Restaurant</h2>
+            <p>First Class Dining Experience</p>
+            <button type="button" class="cta"><a href="tables.html">View Table</a></button>
+            <button type="button" class="cta"><a href="reservation.html">Make Reservation</a>
+            </button>
+            <button type="button" class="cta"><a href="index.html">Home</a>
+            </button>
+        </div>
+    </section>
+
+    <h3>Current Reservation and Waiting List</h3>
+
+
+    <div class="reservationsContainer">
+        <h5>Current Reservations</h5>
+        <ol id="reservations">
+        </ol>
+    </div>
+
+    <div>
+        <h5>Waiting List</h5>
+        <ul id="waitinglist">
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+
+        $.get("/api/reservations", function(data) {
+            const reservations = data;
+            const reservationsList = $("#reservations");
+
+            for (const reservation of reservations) {
+                let element = $("<li>");
+                element.html(reservation.customerName);
+                reservationsList.append(element);
+            }
+        })
+
+        $.get("/api/waitinglist", function(data) {
+            const waitingList = data;
+            const waitingListDiv = $("#waitinglist");
+        
+            for (const customer of waitingList) {
+            let element = $("<li>");
+            element.html(customer.customerName);
+            waitingListDiv.append(element);
+        }
+        })
+
+        
+
+    </script>
+</body>
+</html>

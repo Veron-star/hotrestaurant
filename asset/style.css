@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
+body {
+    margin: auto;
+    padding: 0;
+    font-family: Roboto 
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0081 ,#6827b0);
+    border-radius: 0 0 50% 50%/0 0 100% 100%;
+    transform: scaleX(1.5);
+}
+
+section .content {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+section .content h2 {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-size: 3em;
+}
+
+section .content p {
+    color: black;
+    font-size: 1.5em;
+}
+
+section .cta {
+    display: inline-block;
+    padding: 10px 30px;
+    color: turquoise;
+    /* background-color: transparent; */
+    border: 2px solid turquoise;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 30px;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+    justify-content: space-between;
+}
+.cta:hover {
+    color: whitesmoke;
+    background-color: turquoise;
+}
+
+.container {
+    position: relative;
+    width: 500px;
+    display: grid;
+    grid-template-rows: auto-fit, minmax(250px);
+}
+
+.container .card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background: aliceblue;
+    margin-left: 50px;
+}
+
+.container .card .imgBx {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #000;
+}
+
+.container .card .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .card .contents {
+    position: relative;
+    width: 1200px;
+    height: 200px;
+    display: flex;
+    justify-content: left;
+    padding-left: 10px;
+}
+
+.formBx form {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.formBx form input {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #333;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin: 8px 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.formBx form button {
+    max-width: 100px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}

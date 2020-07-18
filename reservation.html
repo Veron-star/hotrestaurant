@@ -1,0 +1,64 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/style.css">
+    
+</head>
+<body>
+    <section>
+        <div class="content">
+            <h2>Hot Restaurant</h2>
+            <p>First Class Dining Experience</p>
+            <button type="button" class="cta"><a href="tables.html">View Table</a></button>
+            <button type="button" class="cta"><a href="reservation.html">Make Reservation</a>
+            </button>
+            <button type="button" class="cta"><a href="index.html">Home</a>
+            </button>
+        </div>
+    </section>
+
+    <div class="formBx">
+        <form>
+            <input type="text" id="reservationName" placeholder="Enter your Name">
+            <input type="text" id="reservationPhone" placeholder="Enter your Phone Number">
+            <input type="text" id="reservationEmail" placeholder="Enter your Email">
+            <input type="text" id="reservationId" placeholder="Enter your ID">
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+    </div>
+    
+
+    <script type="text/javascript">
+    
+        $("#submitBtn").on("click", function(e) {
+            e.preventDefault();
+            const reservation = {
+                "customerName": $("#reservationName").val(),
+                "phoneNumber": $("#reservationPhone").val(),
+                "customerEmail": $("#reservationEmail").val(),
+                "customerID": $("#reservationId").val()
+            }
+            $.post("/api/reservations", reservation, function(data) {
+                console.log(data);
+            });
+
+            // $.get("/api/reservations", function(data) {
+
+            // console.log(data.length)
+            // if (data.length === 5) {
+            //     console.log("You are on the waiting list")
+            // } else {
+            //     console.log("Booking Created")
+            // }
+        // })
+            
+        })
+
+    
+    </script>
+</body>
+</html>
